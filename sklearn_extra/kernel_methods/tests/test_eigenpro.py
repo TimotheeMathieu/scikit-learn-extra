@@ -31,7 +31,10 @@ def gen_classification(params):
 @pytest.mark.parametrize(
     "params, err_msg",
     [
-        ({"kernel": "not_a_kernel"}, "The 'metric' parameter of pairwise_kernels must be a str among {'cosine', 'poly', 'laplacian', 'polynomial', 'chi2', 'linear', 'sigmoid', 'additive_chi2', 'precomputed', 'rbf'} or a callable. Got 'not_a_kernel' instead."),
+        (
+            {"kernel": "not_a_kernel"},
+            "The 'metric' parameter of pairwise_kernels must be a str among {'cosine', 'poly', 'laplacian', 'polynomial', 'chi2', 'linear', 'sigmoid', 'additive_chi2', 'precomputed', 'rbf'} or a callable. Got 'not_a_kernel' instead.",
+        ),
         ({"n_epoch": 0}, "n_epoch should be positive, was 0"),
         ({"n_epoch": -1}, "n_epoch should be positive, was -1"),
         ({"n_components": -1}, "n_components should be non-negative, was -1"),
