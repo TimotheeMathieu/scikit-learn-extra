@@ -9,7 +9,7 @@ requires = [
     # wheels on PyPI
     #
     # see: https://github.com/scipy/oldest-supported-numpy/blob/master/setup.cfg
-    "oldest-supported-numpy"
+    "numpy"
 ]
 
 [tool.black]
