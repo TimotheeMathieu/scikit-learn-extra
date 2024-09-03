@@ -15,8 +15,8 @@ mnist.data = mnist.data / 255.0
 print("Data has loaded")
 
 p = rng.permutation(60000)
-x_train = mnist.data[p]
-y_train = np.int32(mnist.target[p])
+x_train = mnist.data.iloc[p]
+y_train = np.int32(mnist.target.iloc[p])
 x_test = mnist.data[60000:]
 y_test = np.int32(mnist.target[60000:])
 

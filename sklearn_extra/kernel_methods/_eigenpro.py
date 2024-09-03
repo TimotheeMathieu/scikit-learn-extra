@@ -110,11 +110,11 @@ class BaseEigenPro(BaseEstimator):
 
         W = K / m
         try:
-            E, Lambda = eigh(W, eigvals=(m - n_components, m - 1))
+            E, Lambda = eigh(W)
         except LinAlgError:
             # Use float64 when eigh fails due to precision
             W = np.float64(W)
-            E, Lambda = eigh(W, eigvals=(m - n_components, m - 1))
+            E, Lambda = eigh(W)
             E, Lambda = np.float32(E), np.float32(Lambda)
         # Flip so eigenvalues are in descending order.
         E = np.maximum(np.float32(1e-7), np.flipud(E))
