@@ -1,6 +1,4 @@
 import numpy as np
-import pytest
-
 from sklearn_extra.robust.mean_estimators import median_of_means, huber
 
 
