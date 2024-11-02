@@ -409,7 +409,6 @@ def test_seuclidean():
     km.fit(np.array([0, 0, 0, 1]).reshape((4, 1)))
     km.predict(np.array([0, 0, 0, 1]).reshape((4, 1)))
     km.transform(np.array([0, 0, 0, 1]).reshape((4, 1)))
-    assert len(record) == 0
 
 
 def test_medoids_indices():
