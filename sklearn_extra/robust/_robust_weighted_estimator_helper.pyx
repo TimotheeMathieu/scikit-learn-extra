@@ -70,7 +70,7 @@ cpdef np.ndarray[floating] _kmeans_loss(np.ndarray[floating, ndim=2, mode='c'] X
         np.ndarray[floating, ndim=2] centers = np.zeros([n_classes,
                                                          n_features],
                                                          dtype = dtype)
-        np.ndarray[np.int] num_in_cluster = np.zeros(n_classes, dtype = np.int)
+        np.ndarray[np.int32] num_in_cluster = np.zeros(n_classes, dtype = np.int32)
         np.ndarray[floating] inertias = np.zeros(n_samples, dtype = dtype)
     for i in range(n_samples):
         for j in range(n_features):
