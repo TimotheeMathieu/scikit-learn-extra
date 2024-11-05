@@ -41,6 +41,7 @@ jobs:
           path: |
                 ./wheelhouse/*.whl
                 ./dist/*.tar.gz
+          name: ${{ matrix.os }}
 
   # upload_pypi:
   #   needs: [build_wheels, build_sdist]
