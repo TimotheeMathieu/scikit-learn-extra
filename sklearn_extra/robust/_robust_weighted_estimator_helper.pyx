@@ -75,7 +75,7 @@ cpdef np.ndarray[floating] _kmeans_loss(np.ndarray[floating, ndim=2, mode='c'] X
     for i in range(n_samples):
         for j in range(n_features):
             centers[labels[i], j] += X[i, j]
-        num_in_cluster[labels[i]] += 1
+        num_in_cluster[labels[i]] = num_in_cluster[labels[i]] + 1
 
     for i in range(n_classes):
         for j in range(n_features):
