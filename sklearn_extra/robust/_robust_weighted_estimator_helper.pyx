@@ -8,7 +8,9 @@ import numpy as np
 cimport numpy as np
 
 from sklearn.utils.extmath import row_norms
-from cython cimport floating
+from libc.stdint cimport int32_t, int64_t
+# instead of int and long
+
 
 import sys
 from time import time
@@ -24,12 +26,12 @@ np.import_array()
 cdef floating _euclidean_dense_dense(
         floating* a,  # IN
         floating* b,  # IN
-        int n_features) nogil:
+        int64_t n_features) nogil:
     """Euclidean distance between a dense and b dense"""
     cdef:
-        int i
-        int n = n_features // 4
-        int rem = n_features % 4
+        int64_t i
+        int64_t n = n_features // 4
+        int64_t rem = n_features % 4
         floating result = 0
 
     # We manually unroll the loop for better cache optimization.
@@ -48,7 +50,7 @@ cdef floating _euclidean_dense_dense(
 
 
 cpdef np.ndarray[floating] _kmeans_loss(np.ndarray[floating, ndim=2, mode='c'] X,
-                                        int[:] labels):
+                                        int64_t[:] labels):
     """Compute inertia
 
     squared distancez between each sample and its assigned center.
@@ -59,14 +61,14 @@ cpdef np.ndarray[floating] _kmeans_loss(np.ndarray[floating, ndim=2, mode='c'] X
         dtype = np.double
 
     cdef:
-        int n_samples = X.shape[0]
-        int n_features = X.shape[1]
-        int i, j
-        int n_classes = len(np.unique(labels))
+        int64_t n_samples = X.shape[0]
+        int64_t n_features = X.shape[1]
+        int64_t i, j
+        int64_t n_classes = len(np.unique(labels))
         np.ndarray[floating, ndim=2] centers = np.zeros([n_classes,
                                                          n_features],
                                                          dtype = dtype)
-        np.ndarray[long] num_in_cluster = np.zeros(n_classes, dtype = int)
+        np.ndarray[long] num_in_cluster = np.zeros(n_classes, dtype = int64_t)
         np.ndarray[floating] inertias = np.zeros(n_samples, dtype = dtype)
     for i in range(n_samples):
         for j in range(n_features):
