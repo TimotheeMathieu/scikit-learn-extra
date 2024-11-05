@@ -14,6 +14,7 @@ import sys
 from time import time
 
 from libc.math cimport exp, log, sqrt, pow, fabs
+from libc.stdint cimport int64_t
 cimport numpy as np
 from numpy.math cimport INFINITY
 
@@ -66,7 +67,7 @@ cpdef np.ndarray[floating] _kmeans_loss(np.ndarray[floating, ndim=2, mode='c'] X
         np.ndarray[floating, ndim=2] centers = np.zeros([n_classes,
                                                          n_features],
                                                          dtype = dtype)
-        np.ndarray[long] num_in_cluster = np.zeros(n_classes, dtype = int)
+        np.ndarray[int64_t] num_in_cluster = np.zeros(n_classes, dtype = int)
         np.ndarray[floating] inertias = np.zeros(n_samples, dtype = dtype)
     for i in range(n_samples):
         for j in range(n_features):
