@@ -29,5 +29,3 @@ mapping a single example is O(n_components log d).  The space complexity is
 O(n_components).
 
 See `scikit-learn User-guide <https://scikit-learn.org/stable/modules/kernel_approximation.html#kernel-approximation>`_ for more general informations on kernel approximations.
-
-
