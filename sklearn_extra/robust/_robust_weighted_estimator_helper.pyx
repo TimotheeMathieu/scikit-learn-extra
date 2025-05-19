@@ -16,8 +16,8 @@ from time import time
 from libc.math cimport exp, log, sqrt, pow, fabs
 from libc.stdint cimport int32_t
 cimport numpy as np
-from numpy.math cimport INFINITY
-
+from libc.math cimport INFINITY
+ 
 
 # Modified from sklearn.cluster._k_means_fast.pyx
 np.import_array()
